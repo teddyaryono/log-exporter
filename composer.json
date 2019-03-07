@@ -1,0 +1,31 @@
+{
+    "name": "compro/log-exporter",
+    "description": "Export log from local storage to another cloud provider.",
+    "type": "library",
+    "require": {
+        "league/flysystem-aws-s3-v3": "^1.0@dev"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Compro\\LogExporter\\LogExporterServiceProvider"
+            ],
+            "aliases": {
+                "LogExporter": "Compro\\LogExporter\\Facade"
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Compro\\LogExporter\\": "src/"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Teddy Aryono",
+            "email": "teddy.aryono@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
