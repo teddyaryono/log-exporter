@@ -33,16 +33,17 @@ class ExportLogs extends Command
 
     /**
      * Execute the console command.
-     *
+     *co
      * @return mixed
      */
     public function handle()
     {
+
 	    // User Notification: Export log in progress
 	    $this->line("<fg=red>Export log in progress...</>");
 
 
-	    // Get all local log files, except laravel.log
+		// Get all local log files, except laravel.log
 	    $localLogDisk = Storage::disk('local_log');
 	    $localLogFiles = collect($localLogDisk->allFiles());
 	    $logFilesToBeExported = $localLogFiles->map(function($item) {
@@ -52,7 +53,7 @@ class ExportLogs extends Command
 			->filter();
 
 
-	    // Upload all local log files to S3 bucket
+		// Upload all local log files to S3 bucket
 	    $cloudDisk = Storage::disk('cloud_log');
 
 	    $logFilesToBeExported->each(function ($item, $key) use ($cloudDisk) {
@@ -65,7 +66,8 @@ class ExportLogs extends Command
 	    $cloudLogFiles->dump();
 
 
-	    // User Notification: Export log done
+		// User Notification: Export log done
 	    $this->line("\n<fg=red>Export log done...</>");
+
     }
 }

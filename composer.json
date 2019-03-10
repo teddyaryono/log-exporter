@@ -27,5 +27,5 @@
             "email": "teddy.aryono@gmail.com"
         }
     ],
-    "minimum-stability": "dev"
+    "minimum-stability": "stable"
 }
